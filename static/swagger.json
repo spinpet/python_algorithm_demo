@@ -1,0 +1,226 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "TokenSwapHub API",
+      "version": "1.0.0"
+    },
+    "basePath": "/",
+    "schemes": ["http"],
+    "paths": {
+      "/airdropTokens": {
+        "post": {
+          "summary": "Airdrop tokens to a specified address",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": { "type": "string" },
+                  "addr": { "type": "string" },
+                  "amount": { "type": "number" }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Airdrop successful"
+            }
+          }
+        }
+      },
+      "/transfer": {
+        "post": {
+          "summary": "Transfer tokens",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": { "type": "string" },
+                  "from_addr": { "type": "string" },
+                  "to_addr": { "type": "string" },
+                  "amount": { "type": "number" }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Transfer result"
+            }
+          }
+        }
+      },
+      "/balance_of": {
+        "get": {
+          "summary": "Get balance of a specified address",
+          "parameters": [
+            {
+              "name": "token",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "addr",
+              "in": "query",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Balance result"
+            }
+          }
+        }
+      },
+      "/mint_usdt": {
+        "post": {
+          "summary": "Mint MTK tokens using USDT",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "addr": { "type": "string" },
+                  "usdt_amount": { "type": "number" }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Minted amount"
+            }
+          }
+        }
+      },
+      "/mint_mtk": {
+        "post": {
+          "summary": "Mint MTK tokens",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "addr": { "type": "string" },
+                  "mtk_amount": { "type": "number" }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "USDT spent"
+            }
+          }
+        }
+      },
+      "/burn": {
+        "post": {
+          "summary": "Burn MTK tokens",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "addr": { "type": "string" },
+                  "mtk_amount": { "type": "number" }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "USDT returned"
+            }
+          }
+        }
+      },
+      "/short_open": {
+        "post": {
+          "summary": "Open a short position",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "addr": { "type": "string" },
+                  "usdt_amount": { "type": "number" }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Short position opened"
+            }
+          }
+        }
+      },
+      "/short_close": {
+        "post": {
+          "summary": "Close a short position",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "addr": { "type": "string" },
+                  "order_id": { "type": "string" }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Short position closed"
+            }
+          }
+        }
+      },
+      "/get_current_price": {
+        "get": {
+          "summary": "Get current MTK token price",
+          "responses": {
+            "200": {
+              "description": "Current price"
+            }
+          }
+        }
+      },
+      "/debug_price": {
+        "get": {
+          "summary": "Print debug price information",
+          "responses": {
+            "200": {
+              "description": "Debug info printed"
+            }
+          }
+        }
+      }
+    }
+  }

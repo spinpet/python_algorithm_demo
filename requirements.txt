@@ -1,0 +1,13 @@
+Flask==2.2.2
+flask-swagger-ui
+numpy
+gradio==4.44.0
+matplotlib
+random
+string
+time
+json
+eth-account
+bip39
+mnemonic
+shortuuid
